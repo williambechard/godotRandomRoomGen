@@ -1,0 +1,86 @@
+[gd_scene load_steps=6 format=3 uid="uid://ny0sbktwfy0b"]
+
+[ext_resource type="Script" path="res://Scripts/Room/Room.gd" id="1_prtif"]
+[ext_resource type="Texture2D" uid="uid://xm1hw1o1h0ws" path="res://Art/floor.png" id="2_rdeex"]
+[ext_resource type="PackedScene" uid="uid://dck0tyvfnkjhb" path="res://Prefabs/wall.tscn" id="3_8cpgi"]
+[ext_resource type="PackedScene" uid="uid://bbpe7fat3ws2v" path="res://Prefabs/door.tscn" id="4_7irwo"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vtrrd"]
+
+[node name="Room" type="Node2D" node_paths=PackedStringArray("wall_T", "wall_R", "wall_L", "wall_B", "topDoor", "rightDoor", "bottomDoor", "leftDoor", "openDoors")]
+script = ExtResource("1_prtif")
+wall_T = NodePath("Wall_T")
+wall_R = NodePath("Wall_R")
+wall_L = NodePath("Wall_L")
+wall_B = NodePath("Wall_B")
+topDoor = NodePath("Door_T")
+rightDoor = NodePath("Door_R")
+bottomDoor = NodePath("Door_B")
+leftDoor = NodePath("Door_L")
+size = Vector2(80, 80)
+openDoors = [NodePath("Door_T"), NodePath("Door_R"), NodePath("Door_B"), NodePath("Door_L")]
+
+[node name="Floor" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_vtrrd")
+scale = Vector2(5, 5)
+texture = ExtResource("2_rdeex")
+offset = Vector2(8, 8)
+
+[node name="Wall_LTL" parent="." instance=ExtResource("3_8cpgi")]
+
+[node name="Wall_TL" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(16, 0)
+
+[node name="Wall_T" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(32, 0)
+
+[node name="Wall_TR" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(48, 0)
+
+[node name="Wall_TRR" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(64, 0)
+
+[node name="Wall_RT" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(64, 16)
+
+[node name="Wall_R" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(64, 32)
+
+[node name="Wall_RB" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(64, 48)
+
+[node name="Wall_RBB" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(64, 64)
+
+[node name="Wall_BR" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(48, 64)
+
+[node name="Wall_B" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(32, 64)
+
+[node name="Wall_BL" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(16, 64)
+
+[node name="Wall_BLL" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(0, 64)
+
+[node name="Wall_LB" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(0, 48)
+
+[node name="Wall_L" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(0, 32)
+
+[node name="Wall_LT" parent="." instance=ExtResource("3_8cpgi")]
+position = Vector2(0, 16)
+
+[node name="Door_T" parent="." instance=ExtResource("4_7irwo")]
+position = Vector2(32, 0)
+
+[node name="Door_R" parent="." instance=ExtResource("4_7irwo")]
+position = Vector2(64, 32)
+
+[node name="Door_B" parent="." instance=ExtResource("4_7irwo")]
+position = Vector2(32, 64)
+
+[node name="Door_L" parent="." instance=ExtResource("4_7irwo")]
+position = Vector2(0, 32)

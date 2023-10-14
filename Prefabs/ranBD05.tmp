@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqwtfxrvghktx"]
+
+[ext_resource type="Script" path="res://RandomRoomGenerator.gd" id="1_fphea"]
+
+[node name="RandomRoomGenerator" type="Node2D"]
+script = ExtResource("1_fphea")
+targetNumberOfRooms = 10
+timeToWait = 0.1
+spaceBetween = 4.0
